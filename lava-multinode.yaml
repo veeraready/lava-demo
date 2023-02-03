@@ -44,7 +44,7 @@ actions:
    - host2
    - host3
    image:
-     name: in-nxrm.sw.nxp.com:18111/genavb/image
+     name: ubuntu
      local: True
    os: debian
    timeout:
@@ -66,7 +66,7 @@ actions:
     timeout:
       minutes: 68800
     definitions:
-    - repository: ssh://git@bitbucket.sw.nxp.com/~nxa22077/lava-demo.git
+    - repository: https://github.com/veeraready/lava-demo.git
       from: git
       path: talker.yaml
       name: tests
@@ -77,7 +77,7 @@ actions:
     timeout:
       minutes: 68800
     definitions:
-    - repository: ssh://git@bitbucket.sw.nxp.com/~nxa22077/lava-demo.git
+    - repository: https://github.com/veeraready/lava-demo.git
       from: git
       path: listener.yaml
       name: tests
@@ -88,7 +88,7 @@ actions:
     timeout:
       minutes: 68800
     definitions:
-    - repository: ssh://git@bitbucket.sw.nxp.com/~nxa22077/lava-demo.git
+    - repository: https://github.com/veeraready/lava-demo.git
       from: git
       path: controller.yaml
       name: tests
