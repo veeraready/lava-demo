@@ -1,0 +1,95 @@
+#default job definition for testcase and testplan execution for imx boards
+job_name: TEST MULTINODE
+timeouts:
+  job:
+    minutes: 68800
+  action:
+    minutes: 68800
+  connection:
+    minutes:  5
+priority: medium
+visibility: public
+
+context:
+  uboot_altbank: true
+
+protocols:
+  lava-multinode:
+    roles:
+      host1:
+        device_type: docker
+        tags:
+        - docker_hdc
+        count: 1
+        timeout:
+          minutes: 68800
+      host2:
+        device_type: docker
+        tags:
+        - docker_hdc
+        count: 1
+        timeout:
+          minutes: 68800
+      host3:
+        device_type: docker
+        tags:
+        - docker_hdc
+        count: 1
+        timeout:
+          minutes: 68800
+actions:
+- deploy:
+   role:
+   - host1
+   - host2
+   - host3
+   image:
+     name: in-nxrm.sw.nxp.com:18111/genavb/image
+     local: True
+   os: debian
+   timeout:
+     minutes: 68800
+   to: docker
+- boot:
+   role:
+   - host1
+   - host2
+   - host3
+   command: bash
+   method: docker
+   prompts: ['root@*']
+   timeout:
+     minutes: 68800
+- test:
+    role:
+    - host1
+    timeout:
+      minutes: 68800
+    definitions:
+    - repository: ssh://git@bitbucket.sw.nxp.com/~nxa22077/lava-demo.git
+      from: git
+      path: talker.yaml
+      name: tests
+      branch: master
+- test:
+    role:
+    - host2
+    timeout:
+      minutes: 68800
+    definitions:
+    - repository: ssh://git@bitbucket.sw.nxp.com/~nxa22077/lava-demo.git
+      from: git
+      path: listener.yaml
+      name: tests
+      branch: master
+- test:
+    role:
+    - host3
+    timeout:
+      minutes: 68800
+    definitions:
+    - repository: ssh://git@bitbucket.sw.nxp.com/~nxa22077/lava-demo.git
+      from: git
+      path: controller.yaml
+      name: tests
+      branch: master

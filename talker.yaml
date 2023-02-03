@@ -1,0 +1,10 @@
+metadata:
+  name: test-run-docker
+  description: Running test arbitrary code on worker using docker
+  format: Lava-Test Test Definition 1.0
+run:
+  steps:
+    - pwd
+    - lava-sync start
+    - sleep 5
+    - lava-sync fin
