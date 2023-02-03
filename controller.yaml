@@ -6,5 +6,5 @@ run:
   steps:
     - pwd
     - lava-sync start
-    - sleep 120
+    - sleep 14400
     - lava-sync fin
