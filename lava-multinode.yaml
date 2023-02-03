@@ -52,9 +52,9 @@ actions:
    to: docker
 - boot:
    role:
-   - host1
-   - host2
-   - host3
+   - talker
+   - listener
+   - controller
    command: bash
    method: docker
    prompts: ['root@*']
@@ -62,7 +62,7 @@ actions:
      minutes: 68800
 - test:
     role:
-    - host1
+    - talker
     timeout:
       minutes: 68800
     definitions:
@@ -73,7 +73,7 @@ actions:
       branch: main
 - test:
     role:
-    - host2
+    - listener
     timeout:
       minutes: 68800
     definitions:
@@ -84,7 +84,7 @@ actions:
       branch: main
 - test:
     role:
-    - host3
+    - controller
     timeout:
       minutes: 68800
     definitions:
