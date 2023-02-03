@@ -44,7 +44,7 @@ actions:
    - host2
    - host3
    image:
-     name: ubuntu
+     name: ubuntu:20.04
      local: True
    os: debian
    timeout:
