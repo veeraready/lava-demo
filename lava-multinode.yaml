@@ -66,30 +66,30 @@ actions:
     timeout:
       minutes: 68800
     definitions:
-    - repository: git@github.com:veeraready/lava-demo.git
+    - repository: https://github.com/veeraready/lava-demo.git
       from: git
       path: talker.yaml
       name: tests
-      branch: master
+      branch: main
 - test:
     role:
     - host2
     timeout:
       minutes: 68800
     definitions:
-    - repository: git@github.com:veeraready/lava-demo.git
+    - repository: https://github.com/veeraready/lava-demo.git
       from: git
       path: listener.yaml
       name: tests
-      branch: master
+      branch: main
 - test:
     role:
     - host3
     timeout:
       minutes: 68800
     definitions:
-    - repository: git@github.com:veeraready/lava-demo.git
+    - repository: https://github.com/veeraready/lava-demo.git
       from: git
       path: controller.yaml
       name: tests
-      branch: master
+      branch: main
