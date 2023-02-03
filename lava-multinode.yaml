@@ -16,21 +16,21 @@ context:
 protocols:
   lava-multinode:
     roles:
-      host1:
+      talker:
         device_type: docker
         tags:
         - docker_hdc
         count: 1
         timeout:
           minutes: 68800
-      host2:
+      listener:
         device_type: docker
         tags:
         - docker_hdc
         count: 1
         timeout:
           minutes: 68800
-      host3:
+      controller:
         device_type: docker
         tags:
         - docker_hdc
@@ -40,9 +40,9 @@ protocols:
 actions:
 - deploy:
    role:
-   - host1
-   - host2
-   - host3
+   - talker
+   - listener
+   - controller
    image:
      name: veeraready/ubuntu:latest
      local: False
