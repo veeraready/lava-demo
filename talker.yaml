@@ -5,6 +5,9 @@ metadata:
 run:
   steps:
     - pwd
-    - lava-sync start
-    - sleep 5
-    - lava-sync fin
+    - ifconfig
+    - sleep 120
+    - #lava-sync start
+    - #sleep 5
+    - #lava-sync fin
+
