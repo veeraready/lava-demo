@@ -6,8 +6,7 @@ run:
   steps:
     - pwd
     - ifconfig
-    - sleep 120
-    - #lava-sync start
-    - #sleep 5
-    - #lava-sync fin
+    - lava-sync start
+    - sleep 5
+    - lava-sync fin
 
